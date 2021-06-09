@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Guitar from '../Guitar/Guitar';
 
 const Home = () => {
 
@@ -7,12 +8,14 @@ const Home = () => {
     useEffect(() => {
         fetch('http://localhost:5055/products')
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setProducts(data))
     }, [])
 
     return (
         <div className="">
-            <h1>now we will do map for products</h1> 
+            {
+                products.map(product => <Guitar key={product._id} product={product} > </Guitar>)
+            }
         </div>
     );
 };
