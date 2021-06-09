@@ -7,6 +7,7 @@ import {
   Link
 } from "react-router-dom";
 import Header from './Components/Header/Header';
+import AddProduct from './Components/AddProduct/AddProduct';
 
 
 const App=() => {
@@ -17,9 +18,14 @@ const App=() => {
         <Header></Header>
 
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/home">
             <Home />
           </Route>
+
+          <Route path="/addProduct">
+            <AddProduct />
+          </Route>
+          
         </Switch>
     </Router>
 
