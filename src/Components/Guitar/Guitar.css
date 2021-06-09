@@ -1,10 +1,7 @@
 .imgStyle {
-    width: 50%;
+    width: 35%;
 }
 .mainBoxdiv {
-    border: 5px solid red;
+    border: 5px solid rgb(11, 8, 207);
     width: 30%;
-    display: flex;
-    flex-direction: row;
-    margin: 5px;
 }
