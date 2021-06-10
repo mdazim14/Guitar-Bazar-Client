@@ -8,7 +8,10 @@ import {
 } from "react-router-dom";
 import Header from './Components/Header/Header';
 import AddProduct from './Components/AddProduct/AddProduct';
-
+import Login from './Components/Login/Login';
+import Orders from './Components/Orders/Orders';
+import Admin from './Components/Admin/Admin';
+import ManageProduct from './Components/Guitar/ManageProduct/ManageProduct';
 
 const App=() => {
   return (
@@ -24,6 +27,22 @@ const App=() => {
 
           <Route path="/addProduct">
             <AddProduct />
+          </Route>
+
+          <Route path="/manageProduct">
+            <ManageProduct />
+          </Route>
+
+          <Route path="/orders">
+            <Orders />
+          </Route>
+
+          <Route path="/admin">
+            <Admin />
+          </Route>
+
+          <Route path="/login">
+            <Login />
           </Route>
           
         </Switch>
