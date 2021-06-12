@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import Home from './Components/Home/Home';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,34 +9,35 @@ import {
   Link
 } from "react-router-dom";
 import Header from './Components/Header/Header';
-import AddProduct from './Components/AddProduct/AddProduct';
 import Login from './Components/Login/Login';
 import Orders from './Components/Orders/Orders';
 import Admin from './Components/Admin/Admin';
-import ManageProduct from './Components/Guitar/ManageProduct/ManageProduct';
+import CheckOut from './Components/CheckOut/CheckOut';
+import { createContext, useState } from 'react';
+
+export const userContext=createContext();
+
 
 const App=() => {
-  return (
-      
-      <Router>
-        
-        <Header></Header>
 
+  const [loggedInUser, setLoggedInUser] = useState([]); 
+  return (
+    <userContext.Provider value={[loggedInUser,setLoggedInUser]}>
+    
+      <Router>
+        <Header></Header>
+        
         <Switch>
           <Route exact path="/home">
             <Home />
           </Route>
 
-          <Route path="/addProduct">
-            <AddProduct />
-          </Route>
-
-          <Route path="/manageProduct">
-            <ManageProduct />
-          </Route>
-
           <Route path="/orders">
             <Orders />
+          </Route>
+
+          <Route path="/checkOut/:_id">
+            <CheckOut />
           </Route>
 
           <Route path="/admin">
@@ -47,6 +50,7 @@ const App=() => {
           
         </Switch>
     </Router>
+    </userContext.Provider>
 
   );
 }

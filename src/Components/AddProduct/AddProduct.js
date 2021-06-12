@@ -7,7 +7,6 @@ const AddProduct = () => {
     const { register, handleSubmit, watch } = useForm();
     const [imageURL, setImageURL] = useState(null);
 
-
     const onSubmit = data => {
         const addData = {
             name: data.name,
@@ -15,7 +14,7 @@ const AddProduct = () => {
             price: data.price,
             wight: data.wight
         };
-        const url = `http://localhost:5055/addData`;
+        const url = `https://warm-reaches-72966.herokuapp.com/addData`;
 
         fetch(url, {
             method: 'POST',
@@ -44,12 +43,12 @@ const AddProduct = () => {
             });
 
 
-
-
     }
     return (
         <div>
+            <h1>Add Product : </h1>
             <form className=" formStyle border border-danger p-5 m-2 d-flex" onSubmit={handleSubmit(onSubmit)}>
+                
                 <div>
                     <h5>Product Name</h5>
                     <input defaultValue="Enter Name" type="text" {...register("name")} />

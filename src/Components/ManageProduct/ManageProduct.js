@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react';
+// import { useHistory } from 'react-router-dom';
 import './ManageProduct.css';
 const ManageProduct = (props) => {
+    // const history = useHistory(); 
     // const { price, wight } = props.products;
 
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5055/products')
+        fetch('https://warm-reaches-72966.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
 
     const deleteProduct = (id) => {
-        console.log(id)
-        fetch(`/delete/${id}`, {
+        fetch(`https://warm-reaches-72966.herokuapp.com/delete/${id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(result => {
-            console.log("deleted successfully")
-        })
 
+        })
     }
 
     return (
         <div>
-
+            <h1>Manage Product :</h1>
             <div className=" m-5">
                 <ul className="manageProduct text-white">
                     {

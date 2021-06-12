@@ -12,8 +12,8 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
                         <Link className="nav-link mr-5 ml-5 p-3 bg-warning rounded font-weight-bold text-dark" to="/home">Home</Link>
-                        <Link className="nav-link mr-5 ml-5 p-3 bg-warning rounded font-weight-bold text-dark" to="/addProduct">Add Product</Link>
-                        <Link className="nav-link mr-5 ml-5 p-3 bg-warning rounded font-weight-bold text-dark" to="/manageProduct">Manage Product</Link>
+                        {/* <Link className="nav-link mr-5 ml-5 p-3 bg-warning rounded font-weight-bold text-dark" to="/addProduct">Add Product</Link> */}
+                        {/* <Link className="nav-link mr-5 ml-5 p-3 bg-warning rounded font-weight-bold text-dark" to="/manageProduct">Manage Product</Link> */}
                         <Link className="nav-link mr-5 ml-5 p-3 bg-warning rounded font-weight-bold text-dark" to="/orders">Orders</Link>
                     </Nav>
                     <Nav className="">
@@ -22,7 +22,6 @@ const Header = () => {
                         <Link className="nav-link mr-5 ml-5 p-3 bg-warning text-white  bg-dark rounded font-weight-bold text-white" to="/login">
                             Login
                         </Link>
-
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

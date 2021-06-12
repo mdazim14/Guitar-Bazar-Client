@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
+import {userContext} from '../../App';
+import {useHistory, useLocation} from 'react-router-dom';
 
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
-    const [user, setUser] = useState({})
+    const location=useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
+    const history = useHistory();
+    const [loggedInUser, setLoggedInUser]=useContext(userContext);
 
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     const handleGoogleSignIn = () => {
@@ -16,8 +22,10 @@ const Login = () => {
                 var credential = result.credential;
                 var token = credential.accessToken;
                 var user = result.user;
-                console.log(user);
-                setUser(user);
+                // console.log(user);
+                setLoggedInUser(user);
+                history.replace(from);
+
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
@@ -29,7 +37,7 @@ const Login = () => {
     }
     return (
         <div className=" m-5 p-5 container border border-blue bg-warning">
-            <h1> Name: {user.displayName}</h1>
+            <h1> Name: {loggedInUser.displayName}</h1>
             <button className=" p-3 btn btn-primary" onClick={handleGoogleSignIn}>Sign In With Google</button>
         </div>
     );

@@ -1,6 +1,8 @@
 .imgStyle {
-    width: 200px;
+    width: 400px;
 }
 .mainBoxdiv {
-    border: 5px solid rgb(11, 8, 207);
+    border: 5px solid rgb(21, 8, 207);
+    display:flex;
+    flex-direction: column;
 }
