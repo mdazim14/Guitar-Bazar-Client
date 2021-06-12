@@ -35,17 +35,17 @@ const App=() => {
             <Home />
           </Route>
 
-          <Route path="/orders">
+          <PrivateRoute path="/orders">
             <Orders />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/checkOut/:_id">
+          <PrivateRoute path="/checkOut/:_id">
             <CheckOut />
-          </Route>
+          </PrivateRoute>
 
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin />
-          </Route>
+          </PrivateRoute>
 
           <Route path="/login">
             <Login />
