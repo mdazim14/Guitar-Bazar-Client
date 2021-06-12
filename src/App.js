@@ -28,7 +28,10 @@ const App=() => {
         <Header></Header>
         
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route  path="/home">
             <Home />
           </Route>
 
