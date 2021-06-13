@@ -5,12 +5,12 @@ import {userContext} from '../../App';
  
  
 const CheckOut = () => {
-    // const history = useHistory();
+    const history = useHistory();
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext);
 
     const { _id } = useParams();
-    console.log("this id ID", _id);
+    // console.log("this id ID", _id);
     const [guitar, setGuitar] = useState([]);
 
     useEffect(() => {
@@ -22,10 +22,9 @@ const CheckOut = () => {
     const singleData = guitar.find(guitars => guitars._id === _id);
     const email = loggedInUser.email ;
     const  handleCheckOut = () => {
-        
         const oderDetails = { email, Product: singleData};
 
-        fetch(`http://localhost:5055/addOrder`, {
+        fetch(`https://warm-reaches-72966.herokuapp.com/addOrder`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,6 +35,8 @@ const CheckOut = () => {
         .then(data => {
             if(data){
                 alert('Your Order Placed successfully');
+                history.push('/home');
+
             }
         })
     }

@@ -36,9 +36,9 @@ const Login = () => {
 
     }
     return (
-        <div className=" m-5 p-5 container border border-blue bg-warning">
-            <h1> Name: {loggedInUser.displayName}</h1>
-            <button className=" p-3 btn btn-primary" onClick={handleGoogleSignIn}>Sign In With Google</button>
+        <div className=" m-5 p-3 d-flex justify-content-center align-items-center flex-column bg-warning">
+            <h1> Login with Google</h1>
+            <button className="p-3 btn btn-primary" onClick={handleGoogleSignIn}>Sign In With Google</button>
         </div>
     );
 };
