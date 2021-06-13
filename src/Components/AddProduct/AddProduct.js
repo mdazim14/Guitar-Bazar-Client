@@ -15,7 +15,6 @@ const AddProduct = () => {
             wight: data.wight
         };
         const url = `https://warm-reaches-72966.herokuapp.com/addData`;
-
         fetch(url, {
             method: 'POST',
             headers: {

@@ -1,8 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-
+import { useParams, Link, useHistory } from 'react-router-dom';
+import {userContext} from '../../App';
+ 
+ 
 const CheckOut = () => {
+    // const history = useHistory();
+
+    const [loggedInUser, setLoggedInUser] = useContext(userContext);
+
     const { _id } = useParams();
     console.log("this id ID", _id);
     const [guitar, setGuitar] = useState([]);
@@ -14,6 +20,25 @@ const CheckOut = () => {
     }, [_id]);
 
     const singleData = guitar.find(guitars => guitars._id === _id);
+    const email = loggedInUser.email ;
+    const  handleCheckOut = () => {
+        
+        const oderDetails = { email, Product: singleData};
+
+        fetch(`http://localhost:5055/addOrder`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(oderDetails)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data){
+                alert('Your Order Placed successfully');
+            }
+        })
+    }
 
     return (
         <div>
@@ -39,7 +64,7 @@ const CheckOut = () => {
                         <h4 className="m-5" type="">{singleData?.price} $</h4>
                     </div>
                 </div>
-                <Link to="" className="d-flex justify-content-center m-auto btn btn-primary w-25"> Place Order</Link>
+                <button onClick={()=>{handleCheckOut()}} className="d-flex justify-content-center m-auto btn btn-primary w-25" type=""> Checkout </button>
 
             </div>
         </div>
