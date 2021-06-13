@@ -4,12 +4,14 @@ This is my first full-stack project. What I used to create this project is React
 Introduction:
 This is my e-Commerce Book selling store.
 
-Project Name: BookLand
+Project Name: Guitar Bazar
 Live Site Link: https://guitar-bazar-full-stack.web.app/login
+
+
 GitHub Server Side Link: https://github.com/Porgramming-Hero-web-course/full-stack-server-mdazim14
 features:
 Private Routing
-Firebase Authentication
+Firebase Authentication with Google
 Admin panel open for everyone
 Viewing orders list
 Checkout available
