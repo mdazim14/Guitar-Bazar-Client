@@ -15,3 +15,5 @@ Firebase Authentication with Google
 Admin panel open for everyone
 Viewing orders list
 Checkout available
+
+Heroku api: https://warm-reaches-72966.herokuapp.com/products
